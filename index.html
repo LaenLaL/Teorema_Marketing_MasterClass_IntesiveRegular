@@ -1,0 +1,1556 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calendario Marketing Master Class Intensivo Teorema</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f4ee;
+      --paper: #fffdf8;
+      --ink: #20242a;
+      --muted: #6b675f;
+      --line: #d7d1c3;
+      --teal: #137c72;
+      --teal-soft: #d8efeb;
+      --coral: #c94f3d;
+      --coral-soft: #f6ddd7;
+      --amber: #c88719;
+      --amber-soft: #f7e7c7;
+      --blue: #345f8d;
+      --blue-soft: #dbe7f3;
+      --green: #4c7c2f;
+      --green-soft: #e3efd7;
+      --violet: #7756a5;
+      --violet-soft: #e8ddf2;
+      --gray-soft: #ebe7dd;
+      --shadow: 0 18px 42px rgba(32, 36, 42, 0.08);
+      --radius: 8px;
+      --max: 1240px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background:
+        linear-gradient(180deg, rgba(255, 253, 248, 0.92), rgba(247, 244, 238, 1) 520px),
+        repeating-linear-gradient(90deg, rgba(32,36,42,0.025) 0, rgba(32,36,42,0.025) 1px, transparent 1px, transparent 96px);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.45;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    .page {
+      width: min(100% - 32px, var(--max));
+      margin: 0 auto;
+      padding: 32px 0 48px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0 24px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .mark {
+      width: 38px;
+      height: 38px;
+      border: 2px solid var(--ink);
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      letter-spacing: 0;
+      background: var(--paper);
+    }
+
+    .brand-title {
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.15;
+      font-weight: 800;
+    }
+
+    .brand-subtitle {
+      margin: 3px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .source-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: 38px;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      background: var(--paper);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 750;
+      border-radius: var(--radius);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+      gap: 28px;
+      align-items: stretch;
+      padding: 34px 0 26px;
+    }
+
+    .hero-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-width: 0;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--teal);
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      font-weight: 900;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 880px;
+      font-size: clamp(34px, 6vw, 72px);
+      line-height: 0.98;
+      letter-spacing: 0;
+    }
+
+    .hero-copy p {
+      max-width: 760px;
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: clamp(17px, 2.2vw, 22px);
+    }
+
+    .snapshot {
+      display: grid;
+      align-content: stretch;
+      gap: 12px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      padding: 18px;
+      border-radius: var(--radius);
+    }
+
+    .snapshot h2 {
+      margin: 0;
+      font-size: 17px;
+    }
+
+    .snapshot-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .metric {
+      min-height: 94px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      background: #fbf8f0;
+      border-radius: var(--radius);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .metric strong {
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    .metric span {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .section {
+      margin-top: 28px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 14px;
+    }
+
+    .section-header h2 {
+      margin: 0;
+      font-size: clamp(22px, 3vw, 34px);
+      letter-spacing: 0;
+    }
+
+    .section-header p {
+      max-width: 560px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .phase-board {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(140px, 1fr));
+      gap: 10px;
+    }
+
+    .phase {
+      min-height: 138px;
+      padding: 13px;
+      border: 1px solid var(--line);
+      background: var(--paper);
+      border-radius: var(--radius);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .phase::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 5px;
+      background: var(--phase-color);
+    }
+
+    .phase time {
+      display: block;
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .phase h3 {
+      margin: 9px 0 6px;
+      font-size: 15px;
+      line-height: 1.15;
+    }
+
+    .phase p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding: 14px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    .filter-group {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .filter-note {
+      flex-basis: 100%;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .filter-button {
+      min-height: 36px;
+      padding: 7px 11px;
+      border: 1px solid var(--line);
+      background: #fbf8f0;
+      color: var(--ink);
+      border-radius: var(--radius);
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .filter-button[aria-pressed="true"] {
+      background: var(--ink);
+      color: var(--paper);
+      border-color: var(--ink);
+    }
+
+    .search {
+      width: min(100%, 280px);
+      min-height: 38px;
+      border: 1px solid var(--line);
+      background: #fbf8f0;
+      border-radius: var(--radius);
+      padding: 8px 11px;
+      color: var(--ink);
+    }
+
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .month {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .month-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 14px;
+      border-bottom: 1px solid var(--line);
+      background: #fbf8f0;
+    }
+
+    .month-header h3 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .month-header span {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .weekdays,
+    .days {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+    }
+
+    .weekdays div {
+      padding: 9px 6px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 900;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .day {
+      min-height: 96px;
+      padding: 7px;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: #fffdf8;
+    }
+
+    .day:nth-child(7n) {
+      border-right: 0;
+    }
+
+    .day.is-empty {
+      background: #f4f0e7;
+    }
+
+    .day-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 900;
+      border-radius: 999px;
+    }
+
+    .day.is-today .day-number {
+      color: var(--paper);
+      background: var(--ink);
+    }
+
+    .day-events {
+      display: grid;
+      gap: 5px;
+      margin-top: 6px;
+    }
+
+    .pill {
+      display: block;
+      width: 100%;
+      padding: 5px 6px;
+      border-left: 4px solid var(--event-color);
+      background: var(--event-soft);
+      color: var(--ink);
+      font-size: 11px;
+      line-height: 1.2;
+      font-weight: 760;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    .timeline-wrap {
+      position: relative;
+      margin-top: 14px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 12px;
+      box-shadow: var(--shadow);
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: 126px minmax(0, 1fr);
+      gap: 16px;
+    }
+
+    .time-marker {
+      position: sticky;
+      top: 8px;
+      align-self: start;
+      padding: 9px 10px;
+      border: 1px solid var(--line);
+      background: #fbf8f0;
+      border-radius: var(--radius);
+      font-size: 12px;
+      font-weight: 900;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .timeline-list {
+      position: relative;
+      display: grid;
+      gap: 10px;
+      padding-left: 22px;
+    }
+
+    .timeline-list::before {
+      content: "";
+      position: absolute;
+      left: 7px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--line);
+    }
+
+    .event {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(92px, 0.18fr) minmax(0, 1fr);
+      gap: 14px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      background: #fffdf8;
+      border-radius: var(--radius);
+    }
+
+    .event::before {
+      content: "";
+      position: absolute;
+      left: -22px;
+      top: 24px;
+      width: 14px;
+      height: 14px;
+      border: 3px solid var(--event-color);
+      background: var(--paper);
+      border-radius: 999px;
+    }
+
+    .event time {
+      display: block;
+      color: var(--event-color);
+      font-size: 13px;
+      font-weight: 950;
+      line-height: 1.15;
+    }
+
+    .event h3 {
+      margin: 0 0 4px;
+      font-size: 17px;
+      line-height: 1.2;
+    }
+
+    .event p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .event-meta {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 26px;
+      padding: 5px 8px;
+      background: var(--event-soft);
+      color: var(--ink);
+      border: 1px solid rgba(32,36,42,0.08);
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .milestones {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .icp-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .play-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .play-card {
+      display: grid;
+      align-content: start;
+      gap: 10px;
+      min-height: 210px;
+      padding: 16px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-top: 5px solid var(--play-color);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .play-card h3 {
+      margin: 0;
+      font-size: 20px;
+      line-height: 1.15;
+    }
+
+    .play-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .play-card ul {
+      display: grid;
+      gap: 6px;
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .journey-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .journey-card {
+      display: grid;
+      align-content: start;
+      gap: 10px;
+      min-height: 290px;
+      padding: 15px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-top: 5px solid var(--journey-color);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .journey-card time {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .journey-card h3 {
+      margin: 0;
+      font-size: 19px;
+      line-height: 1.1;
+    }
+
+    .journey-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .journey-card strong {
+      color: var(--journey-color);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .icp-card {
+      display: grid;
+      gap: 12px;
+      padding: 15px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-top: 5px solid var(--icp-color);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .icp-card h3 {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.18;
+    }
+
+    .icp-block {
+      display: grid;
+      gap: 3px;
+    }
+
+    .icp-block strong {
+      color: var(--icp-color);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .icp-block p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .milestone {
+      padding: 15px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .milestone time {
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .milestone h3 {
+      margin: 8px 0 6px;
+      font-size: 17px;
+    }
+
+    .milestone p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .legend {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .swatch {
+      width: 12px;
+      height: 12px;
+      background: var(--swatch);
+      border-radius: 3px;
+    }
+
+    .empty-state {
+      display: none;
+      padding: 20px;
+      border: 1px dashed var(--line);
+      color: var(--muted);
+      text-align: center;
+      border-radius: var(--radius);
+    }
+
+    .empty-state.is-visible {
+      display: block;
+    }
+
+    @media (max-width: 980px) {
+      .hero,
+      .calendar-grid,
+      .milestones,
+      .play-grid,
+      .journey-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .phase-board {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 680px) {
+      .page {
+        width: min(100% - 20px, var(--max));
+        padding-top: 14px;
+      }
+
+      .topbar,
+      .section-header,
+      .controls {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .source-link,
+      .search {
+        width: 100%;
+      }
+
+      h1 {
+        font-size: 40px;
+      }
+
+      .snapshot-grid,
+      .phase-board {
+        grid-template-columns: 1fr;
+      }
+
+      .day {
+        min-height: 74px;
+        padding: 4px;
+      }
+
+      .pill {
+        font-size: 10px;
+        padding: 4px;
+      }
+
+      .timeline {
+        grid-template-columns: 1fr;
+      }
+
+      .time-marker {
+        position: static;
+      }
+
+      .event {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media print {
+      body {
+        background: white;
+      }
+
+      .controls,
+      .source-link {
+        display: none;
+      }
+
+      .page {
+        width: 100%;
+        padding: 0;
+      }
+
+      .month,
+      .timeline-wrap,
+      .milestone,
+      .snapshot {
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="topbar">
+      <div class="brand">
+        <div class="mark" aria-hidden="true">T</div>
+        <div>
+          <p class="brand-title">Teorema Marketing</p>
+          <p class="brand-subtitle">Master Class - Intensivo PAES Regular 2026</p>
+        </div>
+      </div>
+      <a class="source-link" href="estrategia_marketing_masterclass_intensivo.md">Abrir documento maestro</a>
+    </header>
+
+    <section class="hero" aria-labelledby="title">
+      <div class="hero-copy">
+        <p class="eyebrow">Calendario operativo</p>
+        <h1 id="title">Campaña Master Class - Intensivo</h1>
+        <p>Visualización de fechas, fases y acciones para transformar junio y julio en demanda calificada, prueba de producto y llamadas de venta.</p>
+      </div>
+
+      <aside class="snapshot" aria-label="Resumen de campaña">
+        <h2>Lectura rápida</h2>
+        <div class="snapshot-grid">
+          <div class="metric">
+            <strong>850+</strong>
+            <span>puntaje mínimo aspiracional</span>
+          </div>
+          <div class="metric">
+            <strong>$650k</strong>
+            <span>precio Intensivo</span>
+          </div>
+          <div class="metric">
+            <strong>27/28.06</strong>
+            <span>Master Class 2</span>
+          </div>
+          <div class="metric">
+            <strong>08.06 / 29.06</strong>
+            <span>BetaV1 y BetaV2</span>
+          </div>
+          <div class="metric">
+            <strong>29.06-12.07</strong>
+            <span>llamadas de venta</span>
+          </div>
+          <div class="metric">
+            <strong>13.07</strong>
+            <span>inicio Intensivo</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="section" aria-labelledby="phases-title">
+      <div class="section-header">
+        <div>
+          <p class="eyebrow">Fases</p>
+          <h2 id="phases-title">Ruta de campaña</h2>
+        </div>
+        <p>La venta no parte el día de resultados. La idea es llegar al 13.07 con alumnos diagnosticados, llamados y con experiencia previa en Satori.</p>
+      </div>
+      <div class="phase-board" id="phaseBoard"></div>
+    </section>
+
+    <section class="section" aria-labelledby="calendar-title">
+      <div class="section-header">
+        <div>
+          <p class="eyebrow">Calendario</p>
+          <h2 id="calendar-title">Junio y julio</h2>
+        </div>
+      </div>
+
+      <div class="controls" aria-label="Filtros de calendario">
+        <div class="filter-group" id="filters" aria-label="Seleccion múltiple de categorías"></div>
+        <input class="search" id="search" type="search" placeholder="Buscar acción, objetivo o fecha" aria-label="Buscar acción">
+      </div>
+
+      <div class="calendar-grid" id="calendarGrid"></div>
+
+      <div class="legend" id="legend"></div>
+    </section>
+
+    <section class="section" aria-labelledby="plays-title">
+      <div class="section-header">
+        <div>
+          <p class="eyebrow">Sistema comercial</p>
+          <h2 id="plays-title">Qué significa cada bloque</h2>
+        </div>
+        <p>Captación, contenido y llamadas de venta cumplen funciones distintas. Separarlas evita pedirle a un post de Instagram que haga el trabajo de una llamada.</p>
+      </div>
+      <div class="play-grid" id="playGrid"></div>
+    </section>
+
+    <section class="section" aria-labelledby="journey-title">
+      <div class="section-header">
+        <div>
+          <p class="eyebrow">Viaje del cliente</p>
+          <h2 id="journey-title">Modelo 5A</h2>
+        </div>
+        <p>Las 5A ordenan el camino desde que el alumno descubre Teorema hasta que compra, vive el método y recomienda.</p>
+      </div>
+      <div class="journey-grid" id="journeyGrid"></div>
+    </section>
+
+    <section class="section" aria-labelledby="icp-title">
+      <div class="section-header">
+        <div>
+          <p class="eyebrow">ICP</p>
+          <h2 id="icp-title">A quién le hablamos</h2>
+        </div>
+      </div>
+      <div class="icp-grid" id="icpGrid"></div>
+    </section>
+
+    <section class="section" aria-labelledby="timeline-title">
+      <div class="section-header">
+        <div>
+          <p class="eyebrow">Línea de tiempo</p>
+          <h2 id="timeline-title">Acciones recomendadas</h2>
+        </div>
+        <p>Cada bloque conecta una acción con su objetivo comercial o pedagógico.</p>
+      </div>
+
+      <div class="timeline-wrap">
+        <div class="timeline">
+          <div class="time-marker">31.05.2026<br>fecha de trabajo</div>
+          <div>
+            <div class="timeline-list" id="timelineList"></div>
+            <div class="empty-state" id="emptyState">No hay acciones que coincidan con el filtro actual.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="milestones-title">
+      <div class="section-header">
+        <div>
+          <p class="eyebrow">Hitos posteriores</p>
+          <h2 id="milestones-title">Después del cierre</h2>
+        </div>
+        <p>Estos hitos no son de captación inicial, pero sirven para diseñar contenidos de profundidad durante el Intensivo.</p>
+      </div>
+      <div class="milestones" id="milestones"></div>
+    </section>
+  </main>
+
+  <script>
+    const categories = {
+      "Captación": { color: "#137c72", soft: "#d8efeb" },
+      "Contenido": { color: "#c88719", soft: "#f7e7c7" },
+      "PAES": { color: "#345f8d", soft: "#dbe7f3" },
+      "Master Class": { color: "#c94f3d", soft: "#f6ddd7" },
+      "BetaV1": { color: "#7b9f35", soft: "#eaf1d8" },
+      "BetaV2": { color: "#5f8f3a", soft: "#e3f0d9" },
+      "Llamadas de Venta": { color: "#7756a5", soft: "#e8ddf2" },
+      "Email Marketing": { color: "#9a5b24", soft: "#f0e0cf" },
+      "Intensivo": { color: "#2e6f88", soft: "#d9edf2" }
+    };
+
+    const events = [
+      {
+        start: "2026-06-01",
+        end: "2026-06-01",
+        dateLabel: "01.06.2026",
+        title: "Inicio inscripción PAES Regular",
+        objective: "Hito oficial: abre la inscripción a la PAES Regular del Proceso de Admisión 2027.",
+        category: "PAES",
+        tags: ["PAES Regular", "inscripción"]
+      },
+      {
+        start: "2026-06-01",
+        end: "2026-06-01",
+        dateLabel: "01.06.2026",
+        title: "Abrir lista de interés + diagnóstico M1/M2",
+        objective: "Aprovechar el inicio de inscripción PAES Regular y captar leads tempranos con intención real.",
+        category: "Captación",
+        tags: ["diagnóstico", "lista de interés", "PAES Regular"]
+      },
+      {
+        start: "2026-06-03",
+        end: "2026-06-03",
+        dateLabel: "03.06.2026",
+        title: "Primera secuencia de WhatsApp a base cálida",
+        objective: "Conseguir los primeros diagnósticos, respuestas cualitativas y señales de objeciones.",
+        category: "Captación",
+        tags: ["WhatsApp", "base cálida"]
+      },
+      {
+        start: "2026-06-05",
+        end: "2026-06-05",
+        dateLabel: "05.06.2026",
+        title: "Publicar Mapa de errores PAES Matemática",
+        objective: "Tener un recurso práctico para Instagram, WhatsApp, apoderados y referidos.",
+        category: "Contenido",
+        tags: ["lead magnet", "errores", "valor práctico"]
+      },
+      {
+        start: "2026-06-08",
+        end: "2026-06-12",
+        dateLabel: "08.06.2026-12.06.2026",
+        title: "BetaV1 abierta en Satori",
+        objective: "Primera prueba abierta para que alumnos exploren Satori y dejen señales de uso, fricción y motivación.",
+        category: "BetaV1",
+        tags: ["Satori", "prueba abierta", "validación"]
+      },
+      {
+        start: "2026-06-09",
+        end: "2026-06-09",
+        dateLabel: "09.06.2026",
+        title: "Live corto o clase táctica pre-Invierno",
+        objective: "Aportar claridad y bajar ansiedad sin hacer venta agresiva antes de la prueba.",
+        category: "Contenido",
+        tags: ["live", "pre-Invierno"]
+      },
+      {
+        start: "2026-06-15",
+        end: "2026-06-15",
+        dateLabel: "15.06.2026 15:00",
+        title: "PAES Invierno M2",
+        objective: "Hito oficial de rendición M2. La comunicación comercial debe mantenerse sobria y de apoyo.",
+        category: "PAES",
+        tags: ["M2", "rendición"]
+      },
+      {
+        start: "2026-06-17",
+        end: "2026-06-17",
+        dateLabel: "17.06.2026 09:00",
+        title: "PAES Invierno M1",
+        objective: "Hito oficial de rendición M1. Después de esta fecha empieza la lectura de brechas post-Invierno.",
+        category: "PAES",
+        tags: ["M1", "rendición"]
+      },
+      {
+        start: "2026-06-15",
+        end: "2026-06-17",
+        dateLabel: "15.06.2026-17.06.2026",
+        title: "Contenido de apoyo durante PAES Invierno",
+        objective: "Acompañar con calma, estrategia y mensajes de contención sin venta fuerte.",
+        category: "Contenido",
+        tags: ["acompañamiento", "calma", "PAES Invierno"]
+      },
+      {
+        start: "2026-06-18",
+        end: "2026-06-18",
+        dateLabel: "18.06.2026",
+        title: "Encuesta/debrief post-Invierno",
+        objective: "Saber qué les costó, qué sintieron y qué lenguaje usar en la Master Class.",
+        category: "Captación",
+        tags: ["investigación", "voz del alumno"]
+      },
+      {
+        start: "2026-06-20",
+        end: "2026-06-20",
+        dateLabel: "20.06.2026",
+        title: "Clase/debrief: Qué reveló la PAES Invierno",
+        objective: "Convertir la experiencia reciente en necesidad de diagnóstico y plan de segundo semestre.",
+        category: "Contenido",
+        tags: ["debrief", "diagnóstico"]
+      },
+      {
+        start: "2026-06-27",
+        end: "2026-06-27",
+        dateLabel: "27.06.2026",
+        title: "Master Class 2 - Sesión 1",
+        objective: "Abrir deseo por el Intensivo, demostrar método Teorema y empujar a asesoría gratuita.",
+        category: "Master Class",
+        tags: ["Master Class 2", "sesión 1", "asesoría gratuita"]
+      },
+      {
+        start: "2026-06-28",
+        end: "2026-06-28",
+        dateLabel: "28.06.2026",
+        title: "Master Class 2 - Sesión 2",
+        objective: "Segunda oportunidad inmediata para leads que no asistieron el 27.06.",
+        category: "Master Class",
+        tags: ["Master Class 2", "sesión 2", "segunda oportunidad"]
+      },
+      {
+        start: "2026-06-29",
+        end: "2026-07-05",
+        dateLabel: "29.06.2026-05.07.2026",
+        title: "BetaV2 abierta en Satori",
+        objective: "Que alumnos prueben Satori, vivan el método y generen datos reales para diagnóstico y asesoría.",
+        category: "BetaV2",
+        tags: ["Satori", "prueba abierta", "diagnóstico"]
+      },
+      {
+        start: "2026-06-29",
+        end: "2026-07-05",
+        dateLabel: "29.06.2026-05.07.2026",
+        title: "Llamadas de Venta",
+        objective: "Vender el curso intensivo aprovechando el impulso de la Master Class y BetaV2.",
+        category: "Llamadas de Venta",
+        tags: ["high ticket", "cierre", "Satori"]
+      },
+      {
+        start: "2026-07-06",
+        end: "2026-07-12",
+        dateLabel: "06.07.2026-12.07.2026",
+        title: "Llamadas de Venta",
+        objective: "Cerrar postulantes calificados antes del inicio del Intensivo.",
+        category: "Llamadas de Venta",
+        tags: ["high ticket", "cierre", "pre-inicio"]
+      },
+      {
+        start: "2026-07-13",
+        end: "2026-07-13",
+        dateLabel: "13.07.2026",
+        title: "Inicio curso Intensivo segundo semestre",
+        objective: "Partir la cohorte con alumnos ya diagnosticados, asesorados y activados en Satori.",
+        category: "Intensivo",
+        tags: ["inicio", "cohorte", "Satori"]
+      },
+      {
+        start: "2026-07-17",
+        end: "2026-07-17",
+        dateLabel: "17.07.2026",
+        title: "Resultados PAES Invierno",
+        objective: "Activar decisión con datos reales y abrir conversaciones para rezagados o cupos restantes.",
+        category: "PAES",
+        tags: ["resultados", "PAES Invierno"]
+      },
+      {
+        start: "2026-07-18",
+        end: "2026-07-18",
+        dateLabel: "18.07.2026",
+        title: "Email post-resultados 1",
+        objective: "Reactivar leads con resultados recientes, invitar a unirse a Satori y abrir agenda para últimas llamadas si hay cupos.",
+        category: "Email Marketing",
+        tags: ["email", "Satori", "post-resultados", "últimos cupos"]
+      },
+      {
+        start: "2026-07-19",
+        end: "2026-07-19",
+        dateLabel: "19.07.2026",
+        title: "Email post-resultados 2",
+        objective: "Recordar la ventana final para agendar llamada, posicionar Satori como siguiente paso y captar rezagados con intención real.",
+        category: "Email Marketing",
+        tags: ["email", "Satori", "últimas llamadas", "rezagados"]
+      }
+    ];
+
+    const phases = [
+      { range: "30.05-03.06", title: "Master Class 1 + preparación", detail: "Apertura del ciclo, oferta, diagnóstico y secuencia inicial.", color: "#137c72" },
+      { range: "04.06-12.06", title: "Captación + BetaV1", detail: "Contenido, WhatsApp, lead magnet y primera prueba Satori.", color: "#c88719" },
+      { range: "15.06-17.06", title: "PAES Invierno", detail: "Acompañamiento y escucha, sin venta fuerte.", color: "#345f8d" },
+      { range: "18.06-28.06", title: "Debrief + Master Class", detail: "Insights post-Invierno y Master Class el 27/28.", color: "#c94f3d" },
+      { range: "29.06-12.07", title: "BetaV2 + venta", detail: "Satori abierto y llamadas de venta.", color: "#5f8f3a" },
+      { range: "13.07", title: "Inicio Intensivo", detail: "Cohorte diagnosticada, asesorada y activada.", color: "#2e6f88" }
+    ];
+
+    const icps = [
+      {
+        title: "Egresado post PAES Invierno",
+        pain: "Ya rindió o está por rendir y no quiere perder otro semestre estudiando mal.",
+        desire: "Entender sus brechas reales y convertir Invierno en un plan para la Regular.",
+        hook: "La PAES Invierno puede ser tu diagnóstico más honesto para preparar en serio la Regular.",
+        color: "#345f8d"
+      },
+      {
+        title: "4to medio ambicioso",
+        pain: "Siente que el segundo semestre se viene encima y no sabe qué priorizar.",
+        desire: "Tener ruta, profesor, material y seguimiento para apuntar alto desde ahora.",
+        hook: "No necesitas partir siendo seco: necesitas entrenar con método para apuntar 850+.",
+        color: "#137c72"
+      },
+      {
+        title: "Alto rendimiento estancado",
+        pain: "Tiene buen puntaje, pero no sabe qué le falta para romper su techo.",
+        desire: "Precisión, dificultad, feedback fino y estrategia bajo presión.",
+        hook: "Sobre 750, subir no depende de hacer más de lo mismo: depende de analizar cada punto perdido.",
+        color: "#c94f3d"
+      },
+      {
+        title: "Entiende en clase, falla solo",
+        pain: "Cuando le explican entiende, pero en ensayo se desordena, se bloquea o pierde puntos.",
+        desire: "Pasar de comprender a rendir con práctica deliberada y revisión de errores.",
+        hook: "Pasar de entender a puntuar requiere diagnóstico, presión y revisión de errores.",
+        color: "#7756a5"
+      },
+      {
+        title: "Apoderado que compra estructura",
+        pain: "Ve ganas en su hijo, pero necesita tranquilidad, método y acompañamiento real.",
+        desire: "Invertir en profesores comprometidos, seguimiento y avance medible.",
+        hook: "Un alumno con ganas necesita método, seguimiento y profesores que sepan exigir bien.",
+        color: "#c88719"
+      }
+    ];
+
+    const plays = [
+      {
+        title: "Captación",
+        color: "#137c72",
+        summary: "Es el sistema para que personas con el perfil correcto entren al mundo Teorema y dejen una señal medible de interés. No vende el Intensivo directamente: convierte desconocidos, seguidores, exalumnos o referidos en leads identificables.",
+        bullets: [
+          "Qué buscamos: nombre, contacto, M1/M2, puntaje actual, meta, carrera y nivel de urgencia.",
+          "Cómo se activa: diagnóstico, lista de interés, registro a Master Class, BetaV1, BetaV2 o respuesta por WhatsApp.",
+          "Canales base: WhatsApp a base cálida, Instagram, referidos de alumnos/apoderados, profesores/colegios y formularios.",
+          "Buen lead: quiere 850+, está dispuesto a trabajar, tiene una meta concreta y acepta conversar con datos.",
+          "Métrica clave: leads calificados que completan diagnóstico, entran a Satori o piden llamada."
+        ]
+      },
+      {
+        title: "Contenido",
+        color: "#c88719",
+        summary: "Es educación estratégica antes de la venta. Su tarea es hacer visible el problema, mostrar la forma Teorema de pensar y aumentar confianza para que la llamada no parta desde cero.",
+        bullets: [
+          "Debe enseñar algo concreto: error típico, habilidad PAES, pregunta resuelta, estrategia de ensayo o debrief post-prueba.",
+          "Debe instalar una creencia: subir puntaje no es hacer más de lo mismo, es diagnosticar y entrenar con método.",
+          "Debe llevar a un siguiente paso: diagnóstico, Beta en Satori, Master Class o llamada de venta.",
+          "Formatos útiles: Reels cortos, carruseles de errores, historias con encuesta, mini clase, caso de alumno y checklist.",
+          "Métrica clave: respuestas, guardados, compartidos, asistencia, clics y avance hacia diagnóstico o llamada."
+        ]
+      },
+      {
+        title: "Llamadas de Venta",
+        color: "#7756a5",
+        summary: "Es la conversación de conversión high ticket. Usa diagnóstico, objetivo de puntaje y contexto familiar para decidir si el Intensivo calza.",
+        bullets: [
+          "Objetivo: vender el Intensivo de $650.000 en llamada de venta.",
+          "Debe ser personalizada: brecha, meta, carrera, objeciones y plan.",
+          "Métrica clave: asistencia a llamada, cierre, motivo de pérdida y ticket."
+        ]
+      },
+      {
+        title: "Email Marketing",
+        color: "#9a5b24",
+        summary: "Es la reactivación de leads que ya conocen Teorema, especialmente después de un hito fuerte como resultados PAES Invierno. No reemplaza la llamada: empuja al lead correcto a agendar o a entrar a Satori.",
+        bullets: [
+          "Objetivo: transformar el resultado reciente en decisión de siguiente paso.",
+          "CTA principal: agendar últimas llamadas si hay cupos disponibles.",
+          "CTA alternativo: unirse a Satori para diagnosticar, practicar y medir avance.",
+          "Métrica clave: aperturas, clics, respuestas, agendas y activaciones en Satori."
+        ]
+      }
+    ];
+
+    const fiveAs = [
+      {
+        stage: "1. Aware",
+        name: "Se entera",
+        range: "30.05-12.06",
+        color: "#137c72",
+        mind: "“Existe Teorema y parece distinto a un preu genérico.”",
+        goal: "Entrar en el radar de estudiantes/apoderados con ambición 850+.",
+        touchpoints: "Master Class 1, WhatsApp, referidos, Instagram, inicio inscripción PAES Regular.",
+        cta: "Rendir diagnóstico, entrar a lista o probar BetaV1.",
+        metric: "Alcance, respuestas, leads y registros."
+      },
+      {
+        stage: "2. Appeal",
+        name: "Se interesa",
+        range: "08.06-28.06",
+        color: "#c88719",
+        mind: "“Esto habla de mi problema: estudio, pero no sé qué me frena.”",
+        goal: "Hacer atractivo el método Teorema: diagnóstico, Satori, claridad y exigencia.",
+        touchpoints: "Contenido de errores, BetaV1, debrief post-Invierno, invitación a Master Class 2.",
+        cta: "Asistir a Master Class 2 o activar Satori.",
+        metric: "Guardados, asistencia, clics, respuestas y uso de Beta."
+      },
+      {
+        stage: "3. Ask",
+        name: "Pregunta",
+        range: "18.06-05.07",
+        color: "#7756a5",
+        mind: "“¿Me sirve para mi puntaje, mi carrera, mi nivel y mi tiempo?”",
+        goal: "Convertir curiosidad en conversación personalizada con datos reales.",
+        touchpoints: "Diagnóstico, WhatsApp, preguntas post-Master Class, BetaV2 y dudas de apoderados.",
+        cta: "Agendar llamada de venta.",
+        metric: "Diagnósticos completos, llamadas agendadas y show-up."
+      },
+      {
+        stage: "4. Act",
+        name: "Compra y parte",
+        range: "29.06-13.07",
+        color: "#2e6f88",
+        mind: "“Este es el plan que necesito para llegar preparado.”",
+        goal: "Cerrar el Intensivo y hacer onboarding sin fricción antes del inicio.",
+        touchpoints: "Llamadas de Venta, modalidad de pago, ficha inicial, Satori e inicio 13.07.",
+        cta: "Inscribirse, pagar y completar onboarding.",
+        metric: "Cierre, ticket, activación Satori y asistencia primera semana."
+      },
+      {
+        stage: "5. Advocate",
+        name: "Recomienda",
+        range: "13.07 en adelante",
+        color: "#5f8f3a",
+        mind: "“Esto me está ayudando; alguien más debería verlo.”",
+        goal: "Transformar avance visible en testimonios, referidos y prueba social.",
+        touchpoints: "Primeros avances, reportes Satori, resultados PAES Invierno, mensajes a apoderados.",
+        cta: "Referir, compartir testimonio o recomendar diagnóstico.",
+        metric: "Referidos, testimonios, casos y menciones."
+      }
+    ];
+
+    const laterMilestones = [
+      {
+        date: "24.09.2026",
+        title: "Oferta definitiva de carreras",
+        detail: "Buen momento para contenidos sobre ponderaciones, estrategia por carrera y M1/M2."
+      },
+      {
+        date: "30.11.2026-02.12.2026",
+        title: "Rendición PAES Regular",
+        detail: "Deadline final del Intensivo. Todo el calendario académico debe retroceder desde aquí."
+      },
+      {
+        date: "04.01.2027",
+        title: "Resultados PAES Regular",
+        detail: "Fecha referencial a confirmar oficialmente para admisión 2027; útil para pensar seguimiento posterior."
+      }
+    ];
+
+    const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+    const weekdays = ["L", "M", "M", "J", "V", "S", "D"];
+    const selectedCategories = new Set();
+    const campaignToday = "2026-05-31";
+
+    function dateFromISO(value) {
+      return new Date(value + "T12:00:00");
+    }
+
+    function sameDay(a, b) {
+      return a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth() && a.getDate() === b.getDate();
+    }
+
+    function eventTouchesDate(event, date) {
+      const start = dateFromISO(event.start);
+      const end = dateFromISO(event.end);
+      return date >= start && date <= end;
+    }
+
+    function eventMatches(event) {
+      const query = document.getElementById("search").value.trim().toLowerCase();
+      const categoryOk = selectedCategories.size === 0 || selectedCategories.has(event.category);
+      if (!query) return categoryOk;
+      const haystack = [
+        event.dateLabel,
+        event.title,
+        event.objective,
+        event.category,
+        event.tags.join(" ")
+      ].join(" ").toLowerCase();
+      return categoryOk && haystack.includes(query);
+    }
+
+    function renderPhases() {
+      const board = document.getElementById("phaseBoard");
+      board.innerHTML = phases.map(phase => `
+        <article class="phase" style="--phase-color:${phase.color}">
+          <time>${phase.range}</time>
+          <h3>${phase.title}</h3>
+          <p>${phase.detail}</p>
+        </article>
+      `).join("");
+    }
+
+    function renderFilters() {
+      const filters = document.getElementById("filters");
+      const all = ["Todas", ...Object.keys(categories)];
+      filters.innerHTML = `
+        <span class="filter-note">Puedes seleccionar una o varias categorías. "Todas" limpia la selección.</span>
+      ` + all.map(label => `
+        <button class="filter-button" type="button" data-filter="${label}" aria-pressed="${label === "Todas" ? selectedCategories.size === 0 : selectedCategories.has(label)}">
+          ${label}
+        </button>
+      `).join("");
+      filters.querySelectorAll("button").forEach(button => {
+        button.addEventListener("click", () => {
+          const filter = button.dataset.filter;
+          if (filter === "Todas") {
+            selectedCategories.clear();
+          } else if (selectedCategories.has(filter)) {
+            selectedCategories.delete(filter);
+          } else {
+            selectedCategories.add(filter);
+          }
+          render();
+        });
+      });
+    }
+
+    function renderLegend() {
+      const legend = document.getElementById("legend");
+      legend.innerHTML = Object.entries(categories).map(([name, config]) => `
+        <span class="legend-item"><span class="swatch" style="--swatch:${config.color}"></span>${name}</span>
+      `).join("");
+    }
+
+    function renderMonth(year, month) {
+      const first = new Date(year, month, 1, 12);
+      const last = new Date(year, month + 1, 0, 12);
+      const firstMondayIndex = (first.getDay() + 6) % 7;
+      const cells = [];
+      for (let i = 0; i < firstMondayIndex; i++) cells.push(null);
+      for (let d = 1; d <= last.getDate(); d++) cells.push(new Date(year, month, d, 12));
+      while (cells.length % 7 !== 0) cells.push(null);
+
+      const visibleEvents = events.filter(eventMatches);
+      const days = cells.map(date => {
+        if (!date) return '<div class="day is-empty" aria-hidden="true"></div>';
+        const dayEvents = visibleEvents.filter(event => eventTouchesDate(event, date));
+        const todayClass = sameDay(date, dateFromISO(campaignToday)) ? " is-today" : "";
+        return `
+          <div class="day${todayClass}">
+            <span class="day-number">${date.getDate()}</span>
+            <div class="day-events">
+              ${dayEvents.map(event => {
+                const config = categories[event.category];
+                return `<a class="pill" style="--event-color:${config.color};--event-soft:${config.soft}" href="#event-${event.start}-${event.title.replace(/[^a-z0-9]+/gi, "-")}">${event.title}</a>`;
+              }).join("")}
+            </div>
+          </div>
+        `;
+      }).join("");
+
+      return `
+        <article class="month">
+          <div class="month-header">
+            <h3>${monthNames[month]} ${year}</h3>
+            <span>${visibleEvents.filter(event => {
+              const start = dateFromISO(event.start);
+              const end = dateFromISO(event.end);
+              return start.getMonth() === month || end.getMonth() === month;
+            }).length} acciones</span>
+          </div>
+          <div class="weekdays">${weekdays.map(day => `<div>${day}</div>`).join("")}</div>
+          <div class="days">${days}</div>
+        </article>
+      `;
+    }
+
+    function renderCalendar() {
+      const grid = document.getElementById("calendarGrid");
+      grid.innerHTML = renderMonth(2026, 5) + renderMonth(2026, 6);
+    }
+
+    function renderIcps() {
+      const grid = document.getElementById("icpGrid");
+      grid.innerHTML = icps.map(icp => `
+        <article class="icp-card" style="--icp-color:${icp.color}">
+          <h3>${icp.title}</h3>
+          <div class="icp-block">
+            <strong>Dolor</strong>
+            <p>${icp.pain}</p>
+          </div>
+          <div class="icp-block">
+            <strong>Deseo</strong>
+            <p>${icp.desire}</p>
+          </div>
+          <div class="icp-block">
+            <strong>Hook</strong>
+            <p>${icp.hook}</p>
+          </div>
+        </article>
+      `).join("");
+    }
+
+    function renderPlays() {
+      const grid = document.getElementById("playGrid");
+      grid.innerHTML = plays.map(play => `
+        <article class="play-card" style="--play-color:${play.color}">
+          <h3>${play.title}</h3>
+          <p>${play.summary}</p>
+          <ul>
+            ${play.bullets.map(item => `<li>${item}</li>`).join("")}
+          </ul>
+        </article>
+      `).join("");
+    }
+
+    function renderJourney() {
+      const grid = document.getElementById("journeyGrid");
+      grid.innerHTML = fiveAs.map(item => `
+        <article class="journey-card" style="--journey-color:${item.color}">
+          <time>${item.range}</time>
+          <h3>${item.stage}<br>${item.name}</h3>
+          <p><strong>Estado mental</strong><br>${item.mind}</p>
+          <p><strong>Objetivo</strong><br>${item.goal}</p>
+          <p><strong>Touchpoints</strong><br>${item.touchpoints}</p>
+          <p><strong>CTA</strong><br>${item.cta}</p>
+          <p><strong>Métrica</strong><br>${item.metric}</p>
+        </article>
+      `).join("");
+    }
+
+    function renderTimeline() {
+      const list = document.getElementById("timelineList");
+      const filtered = events.filter(eventMatches);
+      list.innerHTML = filtered.map(event => {
+        const config = categories[event.category];
+        const id = `event-${event.start}-${event.title.replace(/[^a-z0-9]+/gi, "-")}`;
+        return `
+          <article class="event" id="${id}" style="--event-color:${config.color};--event-soft:${config.soft}">
+            <time>${event.dateLabel}</time>
+            <div>
+              <h3>${event.title}</h3>
+              <p>${event.objective}</p>
+              <div class="event-meta">
+                <span class="tag">${event.category}</span>
+                ${event.tags.map(tag => `<span class="tag">${tag}</span>`).join("")}
+              </div>
+            </div>
+          </article>
+        `;
+      }).join("");
+      document.getElementById("emptyState").classList.toggle("is-visible", filtered.length === 0);
+    }
+
+    function renderMilestones() {
+      const wrap = document.getElementById("milestones");
+      wrap.innerHTML = laterMilestones.map(item => `
+        <article class="milestone">
+          <time>${item.date}</time>
+          <h3>${item.title}</h3>
+          <p>${item.detail}</p>
+        </article>
+      `).join("");
+    }
+
+    function render() {
+      renderFilters();
+      renderLegend();
+      renderCalendar();
+      renderTimeline();
+    }
+
+    document.getElementById("search").addEventListener("input", render);
+    renderPhases();
+    renderMilestones();
+    renderIcps();
+    renderPlays();
+    renderJourney();
+    render();
+  </script>
+</body>
+</html>
