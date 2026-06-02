@@ -118,7 +118,7 @@
 
     .hero {
       display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+      grid-template-columns: minmax(0, 1fr);
       gap: 28px;
       align-items: stretch;
       padding: 34px 0 26px;
@@ -153,50 +153,6 @@
       margin: 18px 0 0;
       color: var(--muted);
       font-size: clamp(17px, 2.2vw, 22px);
-    }
-
-    .snapshot {
-      display: grid;
-      align-content: stretch;
-      gap: 12px;
-      background: var(--paper);
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
-      padding: 18px;
-      border-radius: var(--radius);
-    }
-
-    .snapshot h2 {
-      margin: 0;
-      font-size: 17px;
-    }
-
-    .snapshot-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-    }
-
-    .metric {
-      min-height: 94px;
-      padding: 12px;
-      border: 1px solid var(--line);
-      background: #fbf8f0;
-      border-radius: var(--radius);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .metric strong {
-      font-size: 24px;
-      line-height: 1;
-    }
-
-    .metric span {
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 700;
     }
 
     .section {
@@ -535,13 +491,6 @@
       font-weight: 800;
     }
 
-    .milestones {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
-      margin-top: 14px;
-    }
-
     .icp-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -734,7 +683,6 @@
     @media (max-width: 980px) {
       .hero,
       .calendar-grid,
-      .milestones,
       .play-grid,
       .journey-grid {
         grid-template-columns: 1fr;
@@ -767,7 +715,6 @@
         font-size: 40px;
       }
 
-      .snapshot-grid,
       .phase-board {
         grid-template-columns: 1fr;
       }
@@ -811,9 +758,7 @@
       }
 
       .month,
-      .timeline-wrap,
-      .milestone,
-      .snapshot {
+      .timeline-wrap {
         box-shadow: none;
       }
     }
@@ -838,36 +783,6 @@
         <h1 id="title">Campaña Master Class - Intensivo</h1>
         <p>Visualización de fechas, fases y acciones para transformar junio y julio en demanda calificada, prueba de producto y llamadas de venta.</p>
       </div>
-
-      <aside class="snapshot" aria-label="Resumen de campaña">
-        <h2>Lectura rápida</h2>
-        <div class="snapshot-grid">
-          <div class="metric">
-            <strong>850+</strong>
-            <span>puntaje mínimo aspiracional</span>
-          </div>
-          <div class="metric">
-            <strong>$650k</strong>
-            <span>precio Intensivo</span>
-          </div>
-          <div class="metric">
-            <strong>27/28.06</strong>
-            <span>Master Class 2</span>
-          </div>
-          <div class="metric">
-            <strong>08.06 / 29.06</strong>
-            <span>BetaV1 y BetaV2</span>
-          </div>
-          <div class="metric">
-            <strong>29.06-12.07</strong>
-            <span>llamadas de venta</span>
-          </div>
-          <div class="metric">
-            <strong>13.07</strong>
-            <span>inicio Intensivo</span>
-          </div>
-        </div>
-      </aside>
     </section>
 
     <section class="section" aria-labelledby="phases-title">
@@ -905,7 +820,7 @@
           <p class="eyebrow">Sistema comercial</p>
           <h2 id="plays-title">Qué significa cada bloque</h2>
         </div>
-        <p>Captación, contenido y llamadas de venta cumplen funciones distintas. Separarlas evita pedirle a un post de Instagram que haga el trabajo de una llamada.</p>
+        <p>Por ahora dejamos visibles solo los bloques que conectan directamente con agenda, cierre y reactivación post-resultados.</p>
       </div>
       <div class="play-grid" id="playGrid"></div>
     </section>
@@ -931,36 +846,6 @@
       <div class="icp-grid" id="icpGrid"></div>
     </section>
 
-    <section class="section" aria-labelledby="timeline-title">
-      <div class="section-header">
-        <div>
-          <p class="eyebrow">Línea de tiempo</p>
-          <h2 id="timeline-title">Acciones recomendadas</h2>
-        </div>
-        <p>Cada bloque conecta una acción con su objetivo comercial o pedagógico.</p>
-      </div>
-
-      <div class="timeline-wrap">
-        <div class="timeline">
-          <div class="time-marker">31.05.2026<br>fecha de trabajo</div>
-          <div>
-            <div class="timeline-list" id="timelineList"></div>
-            <div class="empty-state" id="emptyState">No hay acciones que coincidan con el filtro actual.</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" aria-labelledby="milestones-title">
-      <div class="section-header">
-        <div>
-          <p class="eyebrow">Hitos posteriores</p>
-          <h2 id="milestones-title">Después del cierre</h2>
-        </div>
-        <p>Estos hitos no son de captación inicial, pero sirven para diseñar contenidos de profundidad durante el Intensivo.</p>
-      </div>
-      <div class="milestones" id="milestones"></div>
-    </section>
   </main>
 
   <script>
@@ -1208,30 +1093,6 @@
 
     const plays = [
       {
-        title: "Captación",
-        color: "#137c72",
-        summary: "Es el sistema para que personas con el perfil correcto entren al mundo Teorema y dejen una señal medible de interés. No vende el Intensivo directamente: convierte desconocidos, seguidores, exalumnos o referidos en leads identificables.",
-        bullets: [
-          "Qué buscamos: nombre, contacto, M1/M2, puntaje actual, meta, carrera y nivel de urgencia.",
-          "Cómo se activa: diagnóstico, lista de interés, registro a Master Class, BetaV1, BetaV2 o respuesta por WhatsApp.",
-          "Canales base: WhatsApp a base cálida, Instagram, referidos de alumnos/apoderados, profesores/colegios y formularios.",
-          "Buen lead: quiere 850+, está dispuesto a trabajar, tiene una meta concreta y acepta conversar con datos.",
-          "Métrica clave: leads calificados que completan diagnóstico, entran a Satori o piden llamada."
-        ]
-      },
-      {
-        title: "Contenido",
-        color: "#c88719",
-        summary: "Es educación estratégica antes de la venta. Su tarea es hacer visible el problema, mostrar la forma Teorema de pensar y aumentar confianza para que la llamada no parta desde cero.",
-        bullets: [
-          "Debe enseñar algo concreto: error típico, habilidad PAES, pregunta resuelta, estrategia de ensayo o debrief post-prueba.",
-          "Debe instalar una creencia: subir puntaje no es hacer más de lo mismo, es diagnosticar y entrenar con método.",
-          "Debe llevar a un siguiente paso: diagnóstico, Beta en Satori, Master Class o llamada de venta.",
-          "Formatos útiles: Reels cortos, carruseles de errores, historias con encuesta, mini clase, caso de alumno y checklist.",
-          "Métrica clave: respuestas, guardados, compartidos, asistencia, clics y avance hacia diagnóstico o llamada."
-        ]
-      },
-      {
         title: "Llamadas de Venta",
         color: "#7756a5",
         summary: "Es la conversación de conversión high ticket. Usa diagnóstico, objetivo de puntaje y contexto familiar para decidir si el Intensivo calza.",
@@ -1312,27 +1173,10 @@
       }
     ];
 
-    const laterMilestones = [
-      {
-        date: "24.09.2026",
-        title: "Oferta definitiva de carreras",
-        detail: "Buen momento para contenidos sobre ponderaciones, estrategia por carrera y M1/M2."
-      },
-      {
-        date: "30.11.2026-02.12.2026",
-        title: "Rendición PAES Regular",
-        detail: "Deadline final del Intensivo. Todo el calendario académico debe retroceder desde aquí."
-      },
-      {
-        date: "04.01.2027",
-        title: "Resultados PAES Regular",
-        detail: "Fecha referencial a confirmar oficialmente para admisión 2027; útil para pensar seguimiento posterior."
-      }
-    ];
-
     const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
     const weekdays = ["L", "M", "M", "J", "V", "S", "D"];
     const selectedCategories = new Set();
+    const hiddenControls = new Set(["Captación", "Contenido"]);
     const campaignToday = "2026-05-31";
 
     function dateFromISO(value) {
@@ -1376,7 +1220,8 @@
 
     function renderFilters() {
       const filters = document.getElementById("filters");
-      const all = ["Todas", ...Object.keys(categories)];
+      const visibleCategories = Object.keys(categories).filter(name => !hiddenControls.has(name));
+      const all = ["Todas", ...visibleCategories];
       filters.innerHTML = `
         <span class="filter-note">Puedes seleccionar una o varias categorías. "Todas" limpia la selección.</span>
       ` + all.map(label => `
@@ -1401,7 +1246,7 @@
 
     function renderLegend() {
       const legend = document.getElementById("legend");
-      legend.innerHTML = Object.entries(categories).map(([name, config]) => `
+      legend.innerHTML = Object.entries(categories).filter(([name]) => !hiddenControls.has(name)).map(([name, config]) => `
         <span class="legend-item"><span class="swatch" style="--swatch:${config.color}"></span>${name}</span>
       `).join("");
     }
@@ -1503,50 +1348,14 @@
       `).join("");
     }
 
-    function renderTimeline() {
-      const list = document.getElementById("timelineList");
-      const filtered = events.filter(eventMatches);
-      list.innerHTML = filtered.map(event => {
-        const config = categories[event.category];
-        const id = `event-${event.start}-${event.title.replace(/[^a-z0-9]+/gi, "-")}`;
-        return `
-          <article class="event" id="${id}" style="--event-color:${config.color};--event-soft:${config.soft}">
-            <time>${event.dateLabel}</time>
-            <div>
-              <h3>${event.title}</h3>
-              <p>${event.objective}</p>
-              <div class="event-meta">
-                <span class="tag">${event.category}</span>
-                ${event.tags.map(tag => `<span class="tag">${tag}</span>`).join("")}
-              </div>
-            </div>
-          </article>
-        `;
-      }).join("");
-      document.getElementById("emptyState").classList.toggle("is-visible", filtered.length === 0);
-    }
-
-    function renderMilestones() {
-      const wrap = document.getElementById("milestones");
-      wrap.innerHTML = laterMilestones.map(item => `
-        <article class="milestone">
-          <time>${item.date}</time>
-          <h3>${item.title}</h3>
-          <p>${item.detail}</p>
-        </article>
-      `).join("");
-    }
-
     function render() {
       renderFilters();
       renderLegend();
       renderCalendar();
-      renderTimeline();
     }
 
     document.getElementById("search").addEventListener("input", render);
     renderPhases();
-    renderMilestones();
     renderIcps();
     renderPlays();
     renderJourney();
