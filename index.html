@@ -850,8 +850,6 @@
 
   <script>
     const categories = {
-      "Captación": { color: "#137c72", soft: "#d8efeb" },
-      "Contenido": { color: "#c88719", soft: "#f7e7c7" },
       "PAES": { color: "#345f8d", soft: "#dbe7f3" },
       "Master Class": { color: "#c94f3d", soft: "#f6ddd7" },
       "BetaV1": { color: "#7b9f35", soft: "#eaf1d8" },
@@ -872,33 +870,6 @@
         tags: ["PAES Regular", "inscripción"]
       },
       {
-        start: "2026-06-01",
-        end: "2026-06-01",
-        dateLabel: "01.06.2026",
-        title: "Abrir lista de interés + diagnóstico M1/M2",
-        objective: "Aprovechar el inicio de inscripción PAES Regular y captar leads tempranos con intención real.",
-        category: "Captación",
-        tags: ["diagnóstico", "lista de interés", "PAES Regular"]
-      },
-      {
-        start: "2026-06-03",
-        end: "2026-06-03",
-        dateLabel: "03.06.2026",
-        title: "Primera secuencia de WhatsApp a base cálida",
-        objective: "Conseguir los primeros diagnósticos, respuestas cualitativas y señales de objeciones.",
-        category: "Captación",
-        tags: ["WhatsApp", "base cálida"]
-      },
-      {
-        start: "2026-06-05",
-        end: "2026-06-05",
-        dateLabel: "05.06.2026",
-        title: "Publicar Mapa de errores PAES Matemática",
-        objective: "Tener un recurso práctico para Instagram, WhatsApp, apoderados y referidos.",
-        category: "Contenido",
-        tags: ["lead magnet", "errores", "valor práctico"]
-      },
-      {
         start: "2026-06-08",
         end: "2026-06-12",
         dateLabel: "08.06.2026-12.06.2026",
@@ -906,15 +877,6 @@
         objective: "Primera prueba abierta para que alumnos exploren Satori y dejen señales de uso, fricción y motivación.",
         category: "BetaV1",
         tags: ["Satori", "prueba abierta", "validación"]
-      },
-      {
-        start: "2026-06-09",
-        end: "2026-06-09",
-        dateLabel: "09.06.2026",
-        title: "Live corto o clase táctica pre-Invierno",
-        objective: "Aportar claridad y bajar ansiedad sin hacer venta agresiva antes de la prueba.",
-        category: "Contenido",
-        tags: ["live", "pre-Invierno"]
       },
       {
         start: "2026-06-15",
@@ -933,33 +895,6 @@
         objective: "Hito oficial de rendición M1. Después de esta fecha empieza la lectura de brechas post-Invierno.",
         category: "PAES",
         tags: ["M1", "rendición"]
-      },
-      {
-        start: "2026-06-15",
-        end: "2026-06-17",
-        dateLabel: "15.06.2026-17.06.2026",
-        title: "Contenido de apoyo durante PAES Invierno",
-        objective: "Acompañar con calma, estrategia y mensajes de contención sin venta fuerte.",
-        category: "Contenido",
-        tags: ["acompañamiento", "calma", "PAES Invierno"]
-      },
-      {
-        start: "2026-06-18",
-        end: "2026-06-18",
-        dateLabel: "18.06.2026",
-        title: "Encuesta/debrief post-Invierno",
-        objective: "Saber qué les costó, qué sintieron y qué lenguaje usar en la Master Class.",
-        category: "Captación",
-        tags: ["investigación", "voz del alumno"]
-      },
-      {
-        start: "2026-06-20",
-        end: "2026-06-20",
-        dateLabel: "20.06.2026",
-        title: "Clase/debrief: Qué reveló la PAES Invierno",
-        objective: "Convertir la experiencia reciente en necesidad de diagnóstico y plan de segundo semestre.",
-        category: "Contenido",
-        tags: ["debrief", "diagnóstico"]
       },
       {
         start: "2026-06-27",
@@ -1046,7 +981,7 @@
 
     const phases = [
       { range: "30.05-03.06", title: "Master Class 1 + preparación", detail: "Apertura del ciclo, oferta, diagnóstico y secuencia inicial.", color: "#137c72" },
-      { range: "04.06-12.06", title: "Captación + BetaV1", detail: "Contenido, WhatsApp, lead magnet y primera prueba Satori.", color: "#c88719" },
+      { range: "08.06-12.06", title: "BetaV1", detail: "Primera prueba Satori.", color: "#7b9f35" },
       { range: "15.06-17.06", title: "PAES Invierno", detail: "Acompañamiento y escucha, sin venta fuerte.", color: "#345f8d" },
       { range: "18.06-28.06", title: "Debrief + Master Class", detail: "Insights post-Invierno y Master Class el 27/28.", color: "#c94f3d" },
       { range: "29.06-12.07", title: "BetaV2 + venta", detail: "Satori abierto y llamadas de venta.", color: "#5f8f3a" },
@@ -1176,7 +1111,6 @@
     const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
     const weekdays = ["L", "M", "M", "J", "V", "S", "D"];
     const selectedCategories = new Set();
-    const hiddenControls = new Set(["Captación", "Contenido"]);
     const campaignToday = "2026-05-31";
 
     function dateFromISO(value) {
@@ -1220,8 +1154,7 @@
 
     function renderFilters() {
       const filters = document.getElementById("filters");
-      const visibleCategories = Object.keys(categories).filter(name => !hiddenControls.has(name));
-      const all = ["Todas", ...visibleCategories];
+      const all = ["Todas", ...Object.keys(categories)];
       filters.innerHTML = `
         <span class="filter-note">Puedes seleccionar una o varias categorías. "Todas" limpia la selección.</span>
       ` + all.map(label => `
@@ -1246,7 +1179,7 @@
 
     function renderLegend() {
       const legend = document.getElementById("legend");
-      legend.innerHTML = Object.entries(categories).filter(([name]) => !hiddenControls.has(name)).map(([name, config]) => `
+      legend.innerHTML = Object.entries(categories).map(([name, config]) => `
         <span class="legend-item"><span class="swatch" style="--swatch:${config.color}"></span>${name}</span>
       `).join("");
     }
