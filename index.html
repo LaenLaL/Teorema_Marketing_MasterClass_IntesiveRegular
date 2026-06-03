@@ -1294,16 +1294,48 @@
     renderJourney();
     render();
   </script>
-<!-- Aquí termina todo el contenido visual de tu página (botones, textos, etc) -->
 
-    <!-- PEGA EL CÓDIGO DE FIREBASE JUSTO AQUÍ -->
-    <script type="module">
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
-      // ... (todo el resto del código que te pasé) ...
-      probarConexion();
-    </script>
+  <script type="module">
+    // 1. Importar las herramientas de Firebase
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+    import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
 
-  </body>
-</html>
+    // 2. CONFIGURACIÓN DE TU PROYECTO
+    // IMPORTANTE: Reemplaza estos valores de ejemplo por tus credenciales reales de Firebase.
+    const firebaseConfig = {
+      apiKey: "TU_API_KEY",
+      authDomain: "TU_PROYECTO.firebaseapp.com",
+      projectId: "TU_PROYECTO",
+      storageBucket: "TU_PROYECTO.appspot.com",
+      messagingSenderId: "TUS_NUMEROS",
+      appId: "TU_APP_ID"
+    };
+
+    // 3. Inicializar Firebase y la Base de Datos
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // 4. FUNCIÓN DE PRUEBA: Guarda una campaña automáticamente al cargar la página
+    async function probarConexion() {
+      try {
+        console.log("Intentando conectar con Firebase...");
+        const nuevaCampana = await addDoc(collection(db, "campanas"), {
+          titulo: "Campaña de Prueba desde GitHub Pages",
+          estado: "En progreso",
+          fecha: "Junio 2026"
+        });
+        
+        console.log("¡Éxito! Campaña guardada con el ID: ", nuevaCampana.id);
+        alert("¡Conexión a Firebase exitosa! Revisa tu consola de Firestore.");
+      } catch (e) {
+        console.error("Hubo un error: ", e);
+        alert("Error al conectar. Revisa la consola de tu navegador.");
+      }
+    }
+
+    // Ejecutar la prueba automáticamente
+    probarConexion();
+  </script>
+
 </body>
 </html>
