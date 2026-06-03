@@ -983,4 +983,359 @@
       { range: "30.05-03.06", title: "Master Class 1 + preparación", detail: "Apertura del ciclo, oferta, diagnóstico y secuencia inicial.", color: "#137c72" },
       { range: "08.06-12.06", title: "BetaV1", detail: "Primera prueba Satori.", color: "#7b9f35" },
       { range: "15.06-17.06", title: "PAES Invierno", detail: "Acompañamiento y escucha, sin venta fuerte.", color: "#345f8d" },
-      { range: "18.06-28.06", title: "Debrief + Master Class", detail: "Insights post
+      { range: "18.06-28.06", title: "Debrief + Master Class", detail: "Insights post-Invierno y Master Class el 27/28.", color: "#c94f3d" },
+      { range: "29.06-12.07", title: "BetaV2 + venta", detail: "Satori abierto y llamadas de venta.", color: "#5f8f3a" },
+      { range: "13.07", title: "Inicio Intensivo", detail: "Cohorte diagnosticada, asesorada y activada.", color: "#2e6f88" }
+    ];
+
+    const icps = [
+      {
+        title: "Egresado post PAES Invierno",
+        pain: "Ya rindió o está por rendir y no quiere perder otro semestre estudiando mal.",
+        desire: "Entender sus brechas reales y convertir Invierno en un plan para la Regular.",
+        hook: "La PAES Invierno puede ser tu diagnóstico más honesto para preparar en serio la Regular.",
+        color: "#345f8d"
+      },
+      {
+        title: "4to medio ambicioso",
+        pain: "Siente que el segundo semestre se viene encima y no sabe qué priorizar.",
+        desire: "Tener ruta, profesor, material y seguimiento para apuntar alto desde ahora.",
+        hook: "No necesitas partir siendo seco: necesitas entrenar con método para apuntar 850+.",
+        color: "#137c72"
+      },
+      {
+        title: "Alto rendimiento estancado",
+        pain: "Tiene buen puntaje, pero no sabe qué le falta para romper su techo.",
+        desire: "Precisión, dificultad, feedback fino y estrategia bajo presión.",
+        hook: "Sobre 750, subir no depende de hacer más de lo mismo: depende de analizar cada punto perdido.",
+        color: "#c94f3d"
+      },
+      {
+        title: "Entiende en clase, falla solo",
+        pain: "Cuando le explican entiende, pero en ensayo se desordena, se bloquea o pierde puntos.",
+        desire: "Pasar de comprender a rendir con práctica deliberada y revisión de errores.",
+        hook: "Pasar de entender a puntuar requiere diagnóstico, presión y revisión de errores.",
+        color: "#7756a5"
+      },
+      {
+        title: "Apoderado que compra estructura",
+        pain: "Ve ganas en su hijo, pero necesita tranquilidad, método y acompañamiento real.",
+        desire: "Invertir en profesores comprometidos, seguimiento y avance medible.",
+        hook: "Un alumno con ganas necesita método, seguimiento y profesores que sepan exigir bien.",
+        color: "#c88719"
+      }
+    ];
+
+    const plays = [
+      {
+        title: "Llamadas de Venta",
+        color: "#7756a5",
+        summary: "Es la conversación de conversión high ticket. Usa diagnóstico, objetivo de puntaje y contexto familiar para decidir si el Intensivo calza.",
+        bullets: [
+          "Objetivo: vender el Intensivo de $650.000 en llamada de venta.",
+          "Debe ser personalizada: brecha, meta, carrera, objeciones y plan.",
+          "Métrica clave: asistencia a llamada, cierre, motivo de pérdida y ticket."
+        ]
+      },
+      {
+        title: "Email Marketing",
+        color: "#9a5b24",
+        summary: "Es la reactivación de leads que ya conocen Teorema, especialmente después de un hito fuerte como resultados PAES Invierno. No reemplaza la llamada: empuja al lead correcto a agendar o a entrar a Satori.",
+        bullets: [
+          "Objetivo: transformar el resultado reciente en decisión de siguiente paso.",
+          "CTA principal: agendar últimas llamadas si hay cupos disponibles.",
+          "CTA alternativo: unirse a Satori para diagnosticar, practicar y medir avance.",
+          "Métrica clave: aperturas, clics, respuestas, agendas y activaciones en Satori."
+        ]
+      }
+    ];
+
+    const fiveAs = [
+      {
+        stage: "1. Aware",
+        name: "Se entera",
+        range: "30.05-12.06",
+        color: "#137c72",
+        mind: "“Existe Teorema y parece distinto a un preu genérico.”",
+        goal: "Entrar en el radar de estudiantes/apoderados con ambición 850+.",
+        touchpoints: "Master Class 1, WhatsApp, referidos, Instagram, inicio inscripción PAES Regular.",
+        cta: "Rendir diagnóstico, entrar a lista o probar BetaV1.",
+        metric: "Alcance, respuestas, leads y registros."
+      },
+      {
+        stage: "2. Appeal",
+        name: "Se interesa",
+        range: "08.06-28.06",
+        color: "#c88719",
+        mind: "“Esto habla de mi problema: estudio, pero no sé qué me frena.”",
+        goal: "Hacer atractivo el método Teorema: diagnóstico, Satori, claridad y exigencia.",
+        touchpoints: "Contenido de errores, BetaV1, debrief post-Invierno, invitación a Master Class 2.",
+        cta: "Asistir a Master Class 2 o activar Satori.",
+        metric: "Guardados, asistencia, clics, respuestas y uso de Beta."
+      },
+      {
+        stage: "3. Ask",
+        name: "Pregunta",
+        range: "18.06-05.07",
+        color: "#7756a5",
+        mind: "“¿Me sirve para mi puntaje, mi carrera, mi nivel y mi tiempo?”",
+        goal: "Convertir curiosidad en conversación personalizada con datos reales.",
+        touchpoints: "Diagnóstico, WhatsApp, preguntas post-Master Class, BetaV2 y dudas de apoderados.",
+        cta: "Agendar llamada de venta.",
+        metric: "Diagnósticos completos, llamadas agendadas y show-up."
+      },
+      {
+        stage: "4. Act",
+        name: "Compra y parte",
+        range: "29.06-13.07",
+        color: "#2e6f88",
+        mind: "“Este es el plan que necesito para llegar preparado.”",
+        goal: "Cerrar el Intensivo y hacer onboarding sin fricción antes del inicio.",
+        touchpoints: "Llamadas de Venta, modalidad de pago, ficha inicial, Satori e inicio 13.07.",
+        cta: "Inscribirse, pagar y completar onboarding.",
+        metric: "Cierre, ticket, activación Satori y asistencia primera semana."
+      },
+      {
+        stage: "5. Advocate",
+        name: "Recomienda",
+        range: "13.07 en adelante",
+        color: "#5f8f3a",
+        mind: "“Esto me está ayudando; alguien más debería verlo.”",
+        goal: "Transformar avance visible en testimonios, referidos y prueba social.",
+        touchpoints: "Primeros avances, reportes Satori, resultados PAES Invierno, mensajes a apoderados.",
+        cta: "Referir, compartir testimonio o recomendar diagnóstico.",
+        metric: "Referidos, testimonios, casos y menciones."
+      }
+    ];
+
+    const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+    const weekdays = ["L", "M", "M", "J", "V", "S", "D"];
+    const selectedCategories = new Set();
+    const campaignToday = "2026-05-31";
+
+    function dateFromISO(value) {
+      return new Date(value + "T12:00:00");
+    }
+
+    function sameDay(a, b) {
+      return a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth() && a.getDate() === b.getDate();
+    }
+
+    function eventTouchesDate(event, date) {
+      const start = dateFromISO(event.start);
+      const end = dateFromISO(event.end);
+      return date >= start && date <= end;
+    }
+
+    function eventMatches(event) {
+      const query = document.getElementById("search").value.trim().toLowerCase();
+      const categoryOk = selectedCategories.size === 0 || selectedCategories.has(event.category);
+      if (!query) return categoryOk;
+      const haystack = [
+        event.dateLabel,
+        event.title,
+        event.objective,
+        event.category,
+        event.tags.join(" ")
+      ].join(" ").toLowerCase();
+      return categoryOk && haystack.includes(query);
+    }
+
+    function renderPhases() {
+      const board = document.getElementById("phaseBoard");
+      board.innerHTML = phases.map(phase => `
+        <article class="phase" style="--phase-color:${phase.color}">
+          <time>${phase.range}</time>
+          <h3>${phase.title}</h3>
+          <p>${phase.detail}</p>
+        </article>
+      `).join("");
+    }
+
+    function renderFilters() {
+      const filters = document.getElementById("filters");
+      const all = ["Todas", ...Object.keys(categories)];
+      filters.innerHTML = `
+        <span class="filter-note">Puedes seleccionar una o varias categorías. "Todas" limpia la selección.</span>
+      ` + all.map(label => `
+        <button class="filter-button" type="button" data-filter="${label}" aria-pressed="${label === "Todas" ? selectedCategories.size === 0 : selectedCategories.has(label)}">
+          ${label}
+        </button>
+      `).join("");
+      filters.querySelectorAll("button").forEach(button => {
+        button.addEventListener("click", () => {
+          const filter = button.dataset.filter;
+          if (filter === "Todas") {
+            selectedCategories.clear();
+          } else if (selectedCategories.has(filter)) {
+            selectedCategories.delete(filter);
+          } else {
+            selectedCategories.add(filter);
+          }
+          render();
+        });
+      });
+    }
+
+    function renderLegend() {
+      const legend = document.getElementById("legend");
+      legend.innerHTML = Object.entries(categories).map(([name, config]) => `
+        <span class="legend-item"><span class="swatch" style="--swatch:${config.color}"></span>${name}</span>
+      `).join("");
+    }
+
+    function renderMonth(year, month) {
+      const first = new Date(year, month, 1, 12);
+      const last = new Date(year, month + 1, 0, 12);
+      const firstMondayIndex = (first.getDay() + 6) % 7;
+      const cells = [];
+      for (let i = 0; i < firstMondayIndex; i++) cells.push(null);
+      for (let d = 1; d <= last.getDate(); d++) cells.push(new Date(year, month, d, 12));
+      while (cells.length % 7 !== 0) cells.push(null);
+
+      const visibleEvents = events.filter(eventMatches);
+      const days = cells.map(date => {
+        if (!date) return '<div class="day is-empty" aria-hidden="true"></div>';
+        const dayEvents = visibleEvents.filter(event => eventTouchesDate(event, date));
+        const todayClass = sameDay(date, dateFromISO(campaignToday)) ? " is-today" : "";
+        return `
+          <div class="day${todayClass}">
+            <span class="day-number">${date.getDate()}</span>
+            <div class="day-events">
+              ${dayEvents.map(event => {
+                const config = categories[event.category];
+                return `<a class="pill" style="--event-color:${config.color};--event-soft:${config.soft}" href="#event-${event.start}-${event.title.replace(/[^a-z0-9]+/gi, "-")}">${event.title}</a>`;
+              }).join("")}
+            </div>
+          </div>
+        `;
+      }).join("");
+
+      return `
+        <article class="month">
+          <div class="month-header">
+            <h3>${monthNames[month]} ${year}</h3>
+            <span>${visibleEvents.filter(event => {
+              const start = dateFromISO(event.start);
+              const end = dateFromISO(event.end);
+              return start.getMonth() === month || end.getMonth() === month;
+            }).length} acciones</span>
+          </div>
+          <div class="weekdays">${weekdays.map(day => `<div>${day}</div>`).join("")}</div>
+          <div class="days">${days}</div>
+        </article>
+      `;
+    }
+
+    function renderCalendar() {
+      const grid = document.getElementById("calendarGrid");
+      grid.innerHTML = renderMonth(2026, 5) + renderMonth(2026, 6);
+    }
+
+    function renderIcps() {
+      const grid = document.getElementById("icpGrid");
+      grid.innerHTML = icps.map(icp => `
+        <article class="icp-card" style="--icp-color:${icp.color}">
+          <h3>${icp.title}</h3>
+          <div class="icp-block">
+            <strong>Dolor</strong>
+            <p>${icp.pain}</p>
+          </div>
+          <div class="icp-block">
+            <strong>Deseo</strong>
+            <p>${icp.desire}</p>
+          </div>
+          <div class="icp-block">
+            <strong>Hook</strong>
+            <p>${icp.hook}</p>
+          </div>
+        </article>
+      `).join("");
+    }
+
+    function renderPlays() {
+      const grid = document.getElementById("playGrid");
+      grid.innerHTML = plays.map(play => `
+        <article class="play-card" style="--play-color:${play.color}">
+          <h3>${play.title}</h3>
+          <p>${play.summary}</p>
+          <ul>
+            ${play.bullets.map(item => `<li>${item}</li>`).join("")}
+          </ul>
+        </article>
+      `).join("");
+    }
+
+    function renderJourney() {
+      const grid = document.getElementById("journeyGrid");
+      grid.innerHTML = fiveAs.map(item => `
+        <article class="journey-card" style="--journey-color:${item.color}">
+          <time>${item.range}</time>
+          <h3>${item.stage}<br>${item.name}</h3>
+          <p><strong>Estado mental</strong><br>${item.mind}</p>
+          <p><strong>Objetivo</strong><br>${item.goal}</p>
+          <p><strong>Touchpoints</strong><br>${item.touchpoints}</p>
+          <p><strong>CTA</strong><br>${item.cta}</p>
+          <p><strong>Métrica</strong><br>${item.metric}</p>
+        </article>
+      `).join("");
+    }
+
+    function render() {
+      renderFilters();
+      renderLegend();
+      renderCalendar();
+    }
+
+    document.getElementById("search").addEventListener("input", render);
+    renderPhases();
+    renderIcps();
+    renderPlays();
+    renderJourney();
+    render();
+  </script>
+
+  <script type="module">
+    // 1. Importar las herramientas de Firebase desde el CDN oficial
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+    import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
+
+    // 2. CONFIGURACIÓN DE TU PROYECTO REAL (Con tus llaves de Teorema-Marketing)
+    const firebaseConfig = {
+      apiKey: "AIzaSyCV9njfrALBuptIK9mxJXhrgJW-SDolzuM",
+      authDomain: "teorema-marketing.firebaseapp.com",
+      projectId: "teorema-marketing",
+      storageBucket: "teorema-marketing.firebasestorage.app",
+      messagingSenderId: "234194941366",
+      appId: "1:234194941366:web:3bf9bfc297591e9cf3bd17",
+      measurementId: "G-1YBW9QX8XP"
+    };
+
+    // 3. Inicializar Firebase y la Base de Datos (Firestore)
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // 4. FUNCIÓN DE PRUEBA: Guarda automáticamente una campaña al cargar la página
+    async function probarConexion() {
+      try {
+        console.log("Intentando conectar con Firebase...");
+        const nuevaCampana = await addDoc(collection(db, "campanas"), {
+          titulo: "Campaña de Prueba desde GitHub Pages",
+          estado: "En progreso",
+          fecha: "Junio 2026"
+        });
+        
+        console.log("¡Éxito! Campaña guardada con el ID: ", nuevaCampana.id);
+        alert("¡Conexión a Firebase exitosa! Revisa tu consola de Firestore.");
+      } catch (e) {
+        console.error("Hubo un error al conectar: ", e);
+        alert("Error al conectar con Firebase. Revisa la consola.");
+      }
+    }
+
+    // Ejecutar la prueba automáticamente
+    probarConexion();
+  </script>
+
+</body>
+</html>
